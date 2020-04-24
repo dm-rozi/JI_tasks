@@ -1,6 +1,6 @@
-# count all words in text-file. Output from max to min.
+# Count frequency all words in text-file. Output from max to min.
 input = File.open "text.txt","r"
-@hh= {}
+@hh = {}
 
 def add_to_hash word
   # Check empty words
@@ -14,8 +14,9 @@ end
 
 input.each_line do |line|
 	# Split by symbols "space,.:()?\n" 
-  arr_word = line.split(/ |,|\.|\n|\(|\)/)
-    # Each word in array check and add to hash with value (counter).
+  puts line
+  arr_word = line.split(/\s|,|\.|\n|\(|\)|;/)
+  # Each word in array check and add to hash with value (counter).
   arr_word.each {|word| add_to_hash (word)}   
 end
 input.close
@@ -24,7 +25,6 @@ input.close
 #@hh.sort_by{|k,v| v}.reverse.to_h
 
 @hh.sort_by(&:last).reverse.to_h.each {|key, value| puts "#{value}:#{key}"}
-
 
 
 #========================================================================================
