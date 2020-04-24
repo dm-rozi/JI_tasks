@@ -5,10 +5,10 @@ input = File.open "text.txt","r"
 def add_to_hash word
   # Check empty words
   if !word.empty?   
-  word.downcase!
-  count = @hh[word].to_i
-  count+=1
-  @hh[word] = count
+    word.downcase!
+    count = @hh[word].to_i
+    count+=1
+    @hh[word] = count
   end
 end
 
